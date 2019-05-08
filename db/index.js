@@ -4,26 +4,30 @@ let db = new sqlite3.Database('./multistep.db', err => {
   if (err) {
     return console.error(err.message);
   }
-  console.log('Connected to checkout database');
+  console.log('Connected to master database');
 });
 /*___________TEST QUERY________________*/
-let queryString = 'Select name FROM checkout WHERE name=?';
-let insertString = 'INSERT INTO checkout (name, email, password, address, phonenumber, creditcard) VALUES (?,?,?,?,?,?)';
-let params = ['Fred', 'fred@yahoo', 'Batman123', 'Somewhere, CA', 1234567890, '123456789012 12/12'];
 
+let insertString = 'INSERT INTO master (name, email, password, address, phonenumber, creditcard) VALUES (?,?,?,?,?,?)';
+//examples for params and query
+// let params = ['Fred', 'fred@yahoo', 'Batman123', 'Somewhere, CA', 1234567890, '123456789012 12/12'];
+// let queryString = 'Select name FROM master WHERE name=?';
 
-db.get(queryString, 'Trevor', (err, row) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log(row.name);
-})
-db.run(insertString, params, (err, result) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Row was created');
-})
+//examply of query
+// db.get(queryString, 'Trevor', (err, row) => {
+//   if (err) {
+//     return console.error(err.message);
+//   }
+//   console.log(row.name);
+// })
+
+//example of adding a row
+// db.run(insertString, params, (err, result) => {
+//   if (err) {
+//     return console.error(err.message);
+//   }
+//   console.log('Row was created');
+// })
 
 
 
@@ -33,3 +37,5 @@ db.close(err => {
   }
   console.log('Database closed');
 })
+
+module.exports = db;
