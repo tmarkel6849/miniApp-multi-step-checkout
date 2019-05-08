@@ -9,6 +9,16 @@ let db = new sqlite3.Database('./multistep.db', err => {
 /*___________TEST QUERY________________*/
 
 let insertString = 'INSERT INTO master (name, email, password, address, phonenumber, creditcard) VALUES (?,?,?,?,?,?)';
+
+db.close(err => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Database closed');
+})
+
+module.exports = db;
+
 //examples for params and query
 // let params = ['Fred', 'fred@yahoo', 'Batman123', 'Somewhere, CA', 1234567890, '123456789012 12/12'];
 // let queryString = 'Select name FROM master WHERE name=?';
@@ -28,14 +38,3 @@ let insertString = 'INSERT INTO master (name, email, password, address, phonenum
 //   }
 //   console.log('Row was created');
 // })
-
-
-
-db.close(err => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Database closed');
-})
-
-module.exports = db;

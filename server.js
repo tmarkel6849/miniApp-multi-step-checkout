@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const db = require('/db/index.js')
+const db = require('./db/index.js');
 
 const app = express();
 
@@ -13,12 +13,21 @@ app.listen(3000, (err) => {
 });
 
 
-app.use(express.static('/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
   res.sendStatus(200);
 })
 
+//create helper function to take data from request obj
+app.post('/forms', (req, res) => {
+  console.log('Post came through')
+  res.sendStatus(201);
+})
+
+app.get('/checkout', (req, res) => {
+  res.sendStatus(200);
+});
 
 /*________________Database idea__________________*/
 //when next buttons are clicked they send the form data to the server
