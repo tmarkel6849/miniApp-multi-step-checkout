@@ -1,0 +1,28 @@
+{
+  "name": "multi-step-checkout",
+  "version": "1.0.0",
+  "description": "miniapp for a multistep checkout creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmarkel6849/miniApp-multi-step-checkout.git"
+  },
+  "author": "Trevor Markel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmarkel6849/miniApp-multi-step-checkout/issues"
+  },
+  "homepage": "https://github.com/tmarkel6849/miniApp-multi-step-checkout#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-react": "^1.0.0",
+    "babel-preset-react": "^6.24.1",
+    "jquery": "^3.4.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sequelize": "^5.8.5"
+  }
+}
