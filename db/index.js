@@ -10,12 +10,13 @@ let db = new sqlite3.Database('./multistep.db', err => {
 
 let insertString = 'INSERT INTO master (name, email, password, address, phonenumber, creditcard) VALUES (?,?,?,?,?,?)';
 
+
 db.close(err => {
   if (err) {
     return console.error(err.message);
   }
-  console.log('Database closed');
-})
+  console.log('Database is closing')
+});
 
 module.exports = db;
 
