@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 
 //create helper function to take data from request obj
 app.post('/forms', (req, res) => {
-  console.log('Post came through')
+  console.log(req.body);
+  console.log('Post came through');
   res.sendStatus(201);
 })
 
