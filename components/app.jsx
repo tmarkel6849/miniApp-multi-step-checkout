@@ -2,10 +2,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentForm: FormOne
+      currentForm: HomePage
     }
     this.idx = 0;
-    this.forms = [FormTwo, FormThree];
+    this.forms = [FormOne, FormTwo, FormThree, EndGame];
     this.changForm = this.changForm.bind(this);
   }
   changForm () {
@@ -29,6 +29,13 @@ class App extends React.Component {
     )
   }
 }
+
+var HomePage = (props) => (
+  <div>
+    <h3>Welcome to the shopping experience of your life!</h3>
+    <button onClick={props.changeForm}>Click here to begin!</button>
+  </div>
+)
 
 var FormOne = (props) => (
   <div>
@@ -70,9 +77,15 @@ var FormThree = (props) => (
         <input type="text" id="adr" name="csv"  />
         <label for="city"><i class="fa fa-institution"></i> Billing Zipcode</label>
         <input type="text" id="city" name="billingzip" />
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={props.changeForm}>Submit</button>
       </form>
     </div>
+)
+
+const EndGame = (props) => (
+  <div>
+    <h3>Have a miraculous day</h3>
+  </div>
 )
 
 ReactDOM.render(<App /> , document.getElementById('app'));
